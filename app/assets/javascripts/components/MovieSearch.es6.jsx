@@ -3,8 +3,10 @@ class MovieSearch extends React.Component {
   handleSubmit(event){
     event.preventDefault();
     let title = this.refs.movie_search.value
+    let type = this.refs.type_search.value
+    // debugger
     $.ajax({
-      url: "http://www.omdbapi.com/?s=" + title,
+      url: "http://www.omdbapi.com/?s=" + title + "&type=" + type,
       method: 'get'
     })
     .done(function(response){
@@ -18,7 +20,7 @@ class MovieSearch extends React.Component {
       <div>
       <form id="movie-search-form" onSubmit={this.handleSubmit.bind(this)} >
         <input ref="movie_search" type="text" name="query" placeholder="Search for movie..." />
-        <select name="type">
+        <select ref="type_search" name="type">
           <option value="movie">Movie</option>
           <option value="series">Series</option>
           <option value="episode">Episode</option>

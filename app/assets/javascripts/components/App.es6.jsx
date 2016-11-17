@@ -16,10 +16,12 @@ class App extends React.Component {
 
   render() {
     return(
-      <div>
-      <MovieSearch onSearch={this.getMovies.bind(this)}/>
-      <MovieList data={this.state.movies} />
-      </div>
+      <body>
+        <div>
+          <MovieSearch onSearch={this.getMovies.bind(this)}/>
+          <MovieList data={this.state.movies} />
+        </div>
+      </body>
     )
   }
 }
